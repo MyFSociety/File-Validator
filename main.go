@@ -30,17 +30,36 @@ func generate_hash(file *os.File, algo string) string {
 
 }
 
+func help_me() {
+	help_string := "This is not an error, This is File Validator help :) \n\n\n Example: \n \t >> file-validator.exe <file_to_be_hashed> <hashing_algorithm> <provided_hash> \n\n\n Available Algorithm : [SHA1, SHA256, SHA512]"
+
+	fmt.Println(help_string)
+}
+
 func main() {
+
+	// help code
+	for _, val := range os.Args {
+		if val == "help" {
+			help_me()
+
+			return
+		}
+	}
+
+	// file shit
 	f, err := os.Open(os.Args[1])
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// hash shit
 	hash_string := generate_hash(f, os.Args[2])
 
 	defer f.Close()
 
+	// validation shit
 	if hash_string == os.Args[3] {
 		fmt.Println("Good to go :)")
 	} else {
