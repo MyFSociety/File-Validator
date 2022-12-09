@@ -31,7 +31,7 @@ func generate_hash(file *os.File, algo string) string {
 }
 
 func help_me() {
-	help_string := "This is not an error, This is File Validator help :) \n\n\n Example: \n \t >> file-validator.exe <file_to_be_hashed> <hashing_algorithm> <provided_hash> \n\n\n Available Algorithm : [SHA1, SHA256, SHA512]"
+	help_string := "This is not an error, This is File Validator help :) \n\n\n Example: \n \t >> file-validator.exe <file_to_be_hashed> <hashing_algorithm> <provided_hash> \n\n\n Available Algorithm : [SHA1, SHA256, SHA512] \n\n If hash algorithm provided not in availble algorithm SHA1 is default"
 
 	fmt.Println(help_string)
 }
